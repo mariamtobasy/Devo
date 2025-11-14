@@ -1,64 +1,30 @@
-<<<<<<< HEAD
-# EmployeeTrackingApp
+# Devo 🛠️
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.3.
+**Status:** In Progress (Currently under development)
 
-## Development server
+**Devo** is a task management and tracking application designed to help users organize their daily tasks, meetings, and other activities efficiently. The project is actively under development as part of my graduation project.
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
-```
+## Features (Planned/Implemented)
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- Track tasks and meetings with deadlines and priorities   
+- Manage and update task status (e.g., pending, in-progress, completed)  
+- RESTful API endpoints for task and user management  
+- Secure user authentication and session management  
 
-## Code scaffolding
+> ⚠️ **Note:** The project is currently under development, so not all features are fully implemented yet.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+---
 
-```bash
-ng generate component component-name
-```
+## Technology Stack
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- **Frontend:** Angular (SPA - Single Page Application)  
+- **Backend:** ASP.NET Core Web API  
+- **Database:** SQL Server / Entity Framework Core for data storage and management  
+- **Authentication:** Token-based authentication (JWT)  
+- **Architecture:** Client → API → Database (clean separation of concerns)
 
-```bash
-ng generate --help
-```
+---
 
-## Building
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-=======
-# Devo
-employee-tracking-app
->>>>>>> 4e22900c55c76a3b32fcce91f4192587385fcf2e
