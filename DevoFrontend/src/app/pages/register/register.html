@@ -1,0 +1,144 @@
+<body class="register-page">
+<div class="register-container">
+
+  <div class="left-section-wrapper">
+    <div class="register-card">
+      <h2>Create Account</h2>
+      <p class="subtitle">Fill in the details to register.</p>
+
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Full Name" formControlName="fullName"/>
+        <small class="error" *ngIf="registerForm.get('fullName')?.invalid && (registerForm.get('fullName')?.touched || registerForm.get('fullName')?.dirty)">
+    Full Name is required.
+  </small>
+        </div>
+
+        <div class="form-group">
+          <input type="email" class="form-control" placeholder="Email" formControlName="email"/>
+       <small class="error" *ngIf="registerForm.get('email')?.invalid && (registerForm.get('email')?.touched || registerForm.get('email')?.dirty)">
+    <span *ngIf="registerForm.get('email')?.errors?.['required']">Email is required.</span>
+    <span *ngIf="registerForm.get('email')?.errors?.['email']">Enter a valid email.</span>
+  </small>
+        </div>
+
+       <div class="form-group password-wrapper">
+  <input [type]="showPassword ? 'text' : 'password'"
+         class="form-control"
+         placeholder="Password"
+         formControlName="passwordHash"/>
+  <button type="button" class="toggle-btn" (click)="toggleShow()" tabindex="-1">
+    <i class="fa" [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"></i>
+  </button>
+
+  <!-- Error messages -->
+  <div *ngIf="registerForm.get('passwordHash')?.touched || registerForm.get('passwordHash')?.dirty">
+
+    <div *ngIf="registerForm.get('passwordHash')?.errors?.['required']" class="error">
+      Password is required
+    </div>
+
+    <div *ngIf="registerForm.get('passwordHash')?.errors?.['minlength']" class="error">
+      Password must be at least 8 characters
+    </div>
+
+    <div *ngIf="registerForm.get('passwordHash')?.errors?.['maxlength']" class="error">
+      Password cannot exceed 20 characters
+    </div>
+
+    <div *ngIf="registerForm.get('passwordHash')?.errors?.['pattern']" class="error">
+      Password must include uppercase, lowercase, number, and special character
+    </div>
+
+  </div>
+</div>
+
+
+        <div class="form-group">
+         <ngx-intl-tel-input
+  [cssClass]="'form-control'"
+  [preferredCountries]="preferredCountries"
+  [enableAutoCountrySelect]="false"
+  [enablePlaceholder]="true"
+  [searchCountryField]="[SearchCountryField.All]"
+  [selectFirstCountry]="false"
+  [maxLength]="15"
+  [formControl]="phoneControl"
+
+></ngx-intl-tel-input>
+        </div>
+
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Job Title" formControlName="jobTitle"/>
+        </div>
+
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Department" formControlName="departmentId"/>
+        </div>
+
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Location" formControlName="location"/>
+        </div>
+
+        <div class="form-group">
+          <select class="form-control" formControlName="role">
+            <option value="" disabled>Select Role</option>
+            <option value="Employee">Employee</option>
+            <option value="Manager">Manager</option>
+          </select>
+        </div>
+
+        <!-- Reports To -->
+<div class="form-group">
+  <label>Reports To <span class="required">*</span></label>
+  <input type="text" class="form-control" formControlName="reportsTo" placeholder="Manager/Supervisor">
+  <div *ngIf="registerForm.get('reportsTo')?.touched || registerForm.get('reportsTo')?.dirty">
+    <div *ngIf="registerForm.get('reportsTo')?.errors?.['required']" class="error">
+      Reports To is required
+    </div>
+  </div>
+</div>
+
+<!-- Organization -->
+<div class="form-group">
+  <label>Organization</label>
+  <input type="text" class="form-control" formControlName="organization" placeholder="Organization">
+</div>
+
+   <div class="form-group" style="margin-bottom: 1rem;">
+  <label style="display: block; color: rgb(71, 1, 1); font-weight: 500; margin: 10px;">
+    Profile Picture (Optional)
+  </label>
+  <input type="file" accept="image/*" class="form-control" (change)="onFileSelected($event)" />
+</div>
+
+
+
+        <div class="social-login-icons">
+          <button type="button" class="social-icon google"></button>
+          <button type="button" class="social-icon apple"></button>
+          <button type="button" class="social-icon facebook"></button>
+        </div>
+
+        <button type="submit" class="btn-register" [disabled]="registerForm.invalid || isLoading">
+          Register
+        </button>
+
+        <div class="forgot-register-link">
+          <p>Already have an account?
+            <a routerLink="/login" class="btn-link">Login</a>
+          </p>
+        </div>
+      </form>
+     
+
+    </div>
+  </div>
+
+  <div class="register-image-section">
+    <div class="logo">DEVO</div>
+    <h1>Track Progress. Measure Growth. Succeed.</h1>
+  </div>
+</div>
+</body>

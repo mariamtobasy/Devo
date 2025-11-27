@@ -1,0 +1,293 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Projects\\Devo\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\source\\repos\\Devo\\Devo\\DevoBackend.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\source\\repos\\Devo\\Devo\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\source\\repos\\Devo\\Devo\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\source\\repos\\Devo\\Devo\\Data\\DevoDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\ContactMessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\Team.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\TeamMember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\TaskHistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\TaskComment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\Notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\Note.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\MeetingParticipant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\Meeting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\HelpArticle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\AssignedTask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\UserActivity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\User.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\source\\repos\\Devo\\Devo\\appsettings.Development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\Devo\\Devo\\appsettings.json",
+              "RelativeDocumentMoniker": "..\\..\\Users\\user\\source\\repos\\Devo\\Devo\\appsettings.json",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\Devo\\Devo\\appsettings.json",
+              "RelativeToolTip": "..\\..\\Users\\user\\source\\repos\\Devo\\Devo\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-15T14:24:43.825Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DevoBackend.csproj",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\Devo\\Devo\\DevoBackend.csproj",
+              "RelativeDocumentMoniker": "..\\..\\Users\\user\\source\\repos\\Devo\\Devo\\DevoBackend.csproj",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\Devo\\Devo\\DevoBackend.csproj",
+              "RelativeToolTip": "..\\..\\Users\\user\\source\\repos\\Devo\\Devo\\DevoBackend.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-15T14:33:23.178Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\Devo\\Devo\\Program.cs",
+              "RelativeDocumentMoniker": "..\\..\\Users\\user\\source\\repos\\Devo\\Devo\\Program.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\Devo\\Devo\\Program.cs",
+              "RelativeToolTip": "..\\..\\Users\\user\\source\\repos\\Devo\\Devo\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T14:28:25.052Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DevoDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\Devo\\Devo\\Data\\DevoDbContext.cs",
+              "RelativeDocumentMoniker": "..\\..\\Users\\user\\source\\repos\\Devo\\Devo\\Data\\DevoDbContext.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\Devo\\Devo\\Data\\DevoDbContext.cs",
+              "RelativeToolTip": "..\\..\\Users\\user\\source\\repos\\Devo\\Devo\\Data\\DevoDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGgAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T14:34:19.141Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ContactMessage.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\ContactMessage.cs",
+              "RelativeDocumentMoniker": "..\\..\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\ContactMessage.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\ContactMessage.cs",
+              "RelativeToolTip": "..\\..\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\ContactMessage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T19:23:54.47Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Team.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\Team.cs",
+              "RelativeDocumentMoniker": "..\\..\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\Team.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\Team.cs",
+              "RelativeToolTip": "..\\..\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\Team.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T14:42:04.138Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TeamMember.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\TeamMember.cs",
+              "RelativeDocumentMoniker": "..\\..\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\TeamMember.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\TeamMember.cs",
+              "RelativeToolTip": "..\\..\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\TeamMember.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T14:42:41.946Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TaskHistory.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\TaskHistory.cs",
+              "RelativeDocumentMoniker": "..\\..\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\TaskHistory.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\TaskHistory.cs",
+              "RelativeToolTip": "..\\..\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\TaskHistory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T19:20:41.338Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "TaskComment.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\TaskComment.cs",
+              "RelativeDocumentMoniker": "..\\..\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\TaskComment.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\TaskComment.cs",
+              "RelativeToolTip": "..\\..\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\TaskComment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T19:20:09.913Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Notification.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\Notification.cs",
+              "RelativeDocumentMoniker": "..\\..\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\Notification.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\Notification.cs",
+              "RelativeToolTip": "..\\..\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\Notification.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T19:22:59.954Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Note.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\Note.cs",
+              "RelativeDocumentMoniker": "..\\..\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\Note.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\Note.cs",
+              "RelativeToolTip": "..\\..\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\Note.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T19:24:30.977Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "MeetingParticipant.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\MeetingParticipant.cs",
+              "RelativeDocumentMoniker": "..\\..\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\MeetingParticipant.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\MeetingParticipant.cs",
+              "RelativeToolTip": "..\\..\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\MeetingParticipant.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T19:22:03.357Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Meeting.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\Meeting.cs",
+              "RelativeDocumentMoniker": "..\\..\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\Meeting.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\Meeting.cs",
+              "RelativeToolTip": "..\\..\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\Meeting.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T19:21:36.732Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "HelpArticle.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\HelpArticle.cs",
+              "RelativeDocumentMoniker": "..\\..\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\HelpArticle.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\HelpArticle.cs",
+              "RelativeToolTip": "..\\..\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\HelpArticle.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T19:23:25.529Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AssignedTask.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\AssignedTask.cs",
+              "RelativeDocumentMoniker": "..\\..\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\AssignedTask.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\AssignedTask.cs",
+              "RelativeToolTip": "..\\..\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\AssignedTask.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T14:43:20.693Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "UserActivity.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\UserActivity.cs",
+              "RelativeDocumentMoniker": "..\\..\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\UserActivity.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\UserActivity.cs",
+              "RelativeToolTip": "..\\..\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\UserActivity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T19:25:14.851Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\User.cs",
+              "RelativeDocumentMoniker": "..\\..\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\User.cs",
+              "RelativeToolTip": "..\\..\\Users\\user\\source\\repos\\Devo\\Devo\\Models\\User.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAA0wBQAAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T14:41:16.78Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\Devo\\Devo\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "..\\..\\Users\\user\\source\\repos\\Devo\\Devo\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\Devo\\Devo\\appsettings.Development.json",
+              "RelativeToolTip": "..\\..\\Users\\user\\source\\repos\\Devo\\Devo\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-15T14:24:41.832Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

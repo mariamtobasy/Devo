@@ -1,0 +1,64 @@
+<div class="master-layout">
+
+  <!-- Sidebar / Master Menu -->
+  <aside class="sidebar">
+    <h2>Devo</h2>
+
+    <ul>
+      <!-- 1. For You -->
+      <li><a routerLink="/dashboard">For You</a></li>
+
+      <!-- 2. Recent (drawer popup) -->
+      <li><button (click)="toggleDrawer('recent')">Recent</button></li>
+
+      <!-- 3. Starred (drawer popup) -->
+      <li><button (click)="toggleDrawer('starred')">Starred</button></li>
+
+      <!-- 4. Done (placeholder page) -->
+      <li>
+        <!-- Uncomment when DoneComponent is ready -->
+        <!-- <a routerLink="/done">Done</a> -->
+        <span>Done (coming soon)</span>
+      </li>
+
+      <!-- 5. Summary (placeholder page) -->
+      <li>
+        <!-- <a routerLink="/summary">Summary</a> -->
+        <span>Summary (coming soon)</span>
+      </li>
+
+      <!-- 8. Contact Us -->
+      <li>
+        <!-- <a routerLink="/contact">Contact Us</a> -->
+        <span>Contact Us (coming soon)</span>
+      </li>
+    </ul>
+
+    <!-- 6 & 7. Last Starred / Recent Items -->
+    <div class="last-items">
+      <p><strong>Last Starred Item:</strong> {{ lastStarred }}</p>
+      <p><strong>Last Recent Item:</strong> {{ lastRecent }}</p>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
+
+  <!-- Drawers (Recent & Starred) -->
+  <div *ngIf="activeDrawer" class="drawer-backdrop" (click)="closeDrawer()"></div>
+
+  <div *ngIf="activeDrawer === 'recent'" class="drawer">
+    <h3>Recent Items</h3>
+    <p>No recent items yet.</p>
+    <button (click)="closeDrawer()">Close</button>
+  </div>
+
+  <div *ngIf="activeDrawer === 'starred'" class="drawer">
+    <h3>Starred Items</h3>
+    <p>No starred items yet.</p>
+    <button (click)="closeDrawer()">Close</button>
+  </div>
+
+</div>

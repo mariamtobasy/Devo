@@ -1,0 +1,278 @@
+.error {
+  color: red;
+  margin-top: 10px;
+}
+ .login-page { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    /*border: 13px solid  #5C4033;*/
+}
+
+/* Styling for the entire page/view */
+.login-container {
+  display: flex; /* Use flex to put children side-by-side */
+  height: 100%; /* Take up the full viewport height */
+  width: 100vw; /* Take up the full viewport width */
+  overflow: hidden; /* Hide anything that spills over */
+  background-color: #f5eaec; /* Light background for the overall container */
+   padding: 0; 
+}
+.left-section-wrapper {
+    /* Set this to the size you want the entire left column to occupy (e.g., 35%) */
+    flex: 0 0 35%; 
+    max-width: 65%;
+    /* Center the login-card content both horizontally and vertically */
+    display: flex;
+    align-items: center;    /* Vertical centering */
+    justify-content: center; /* Horizontal centering */
+}
+
+/* 1. Login Card (Left Section) */
+.login-card {
+  /* The card takes up roughly 40% of the space, adjust as needed */
+   width: 350px; /* Example fixed width */
+    max-width: 85%; /* Ensures it shrinks on small screens */
+    flex: unset; /* Important: removes the old sizing rules */
+  background-color: rgba(255, 255, 255, 0.9); /* White background for the card */
+  padding: 65px 60px; /* Padding inside the card */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Soft shadow for depth */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center the content vertically */
+  border-radius: 20px;
+  overflow-y:auto ;
+}
+
+.login-card h2 {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color:#7d342c ;
+  font-family:'Times New Roman', Times, serif;
+}
+.login-card h1 {
+  margin-bottom: 5px; /* Reduce space below 'Welcome Back!' */
+   color:#7d342c ;
+}
+
+
+.login-card .subtitle {
+   color:#7d342c ;
+  margin-bottom: 25px;
+  font-size: 0.9em;
+  font-family:'Times New Roman', Times, serif;
+}
+
+/* Input Fields */
+.form-group {
+  margin-bottom: 15px;
+   
+}
+
+.form-group label {
+  display: none; /* Hiding the label as per the image design */
+   
+}
+
+.form-control {
+  width: 100%;
+  padding: 14px 18px;
+  background-color: transparent;
+  border: 2px solid  #7d342c ;
+  border-radius: 25px;
+  box-sizing: border-box; /* Include padding in element's total width/height */
+font-size: 1rem;
+  color: #333; /* Darker text for input */
+}
+.form-control:focus {
+  outline: none; /* Remove default outline */
+  border-color: #888; /* Darker border on focus */
+  box-shadow: 0 0 0 2px rgba(136, 136, 136, 0.2); /* Subtle shadow on focus */
+}
+
+/* Ensure the placeholder text is visible */
+.form-control::placeholder {
+  color: #999;
+  
+}
+/* Sign In Button Styling (Matching the gradient) */
+.btn-sign-in {
+  width: 100%;
+  padding: 15px 20px ;
+  margin-top: 25px;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+ background: linear-gradient(to right,  #7d342c ,  #7d342c ); 
+  box-shadow: 0 4px 6px rgba(140, 59, 51, 0.2);
+  transition: background 0.3s ease;
+  cursor: pointer;
+  height: 50px;
+}
+
+.btn-sign-in:hover {
+  opacity: 0.9;
+}
+
+/* 2. Image Section (Right Section) */
+.login-image-section {
+  flex: 1; /* Takes up the remaining space (60%) */
+  position: relative;
+  background-color: #fff8f0;; /* A light, peachy background color */
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center the text vertically */
+  align-items: center; /* Center the text horizontally */
+  text-align: center;
+}
+
+/* Adding the background image with icons/patterns */
+.login-image-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /* Use your image path here */
+  background-image: url('/assets/rightbg.png');
+  background-size: cover; /* Or 'contain' depending on the image */
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.6; /* Make the background image light/transparent */
+  z-index: 0;
+}
+
+/* Ensure text is above the background image */
+.login-image-section .logo,
+.login-image-section h1 {
+  z-index: 1;
+  position: relative; /* Brings content to the front */
+  /* Use a widely available modern sans-serif font */
+  font-family:  'Poppins'; 
+  /* Make the text larger to fit the space better */
+  font-size: 2.8rem; 
+  /* Make it bold, similar to the reference image */
+  font-weight: 700; 
+  /* Ensure the text is centered within its section */
+  text-align: center; 
+  /* Use a dark color for contrast */
+  color: #333; 
+  /* Adjust line height if the text spans multiple lines to make it look tighter */
+  line-height: 1.2;
+}
+
+.login-image-section .logo {
+  position: absolute;
+  top: 40px; /* Position it like in the top right */
+  right: 60px;
+  font-size: 2rem;
+  font-weight: bold;
+ color:#7d342c ;
+}
+
+.login-image-section h1 {
+  font-size: 3rem;
+  font-weight: 500;
+   color:#7d342c ;
+  max-width: 600px;
+  line-height: 1.2;
+}
+
+/* Social Login Icons */
+.social-login-icons {
+  display: flex;
+  justify-content: center;
+  margin: 25px 0  10px 0;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+ margin: 0 8px;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+.social-icon.google {
+  background-size: 95%;
+  background-image: url('/assets/google.jpg');
+}
+
+.social-icon.apple {
+  background-image: url('/assets/apple.jpg');
+   background-size: 130%;
+}
+.social-icon.facebook {
+  background-image: url('/assets/facebook.jpg');
+   background-size: 100%;
+   /* background-color:rgb(24, 119, 242);*/
+}
+
+/* Forgot/Register Link Styling */
+.forgot-register-link {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 0.9rem;
+  
+}
+
+
+.forgot-register-link .btn-link {
+   color:#7d342c ; /* Using one of the gradient colors for the link */
+  text-decoration: none;
+  font-weight: 600;
+}
+.toggle-btn {
+    position: absolute;
+    bottom: 52%;
+    left: 380px; /* Position from the right edge, matching input's internal spacing */
+    transform: translateY(-50%); /* Fine-tune vertical centering */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: #999; /* Match placeholder color */
+    font-size: 1.1rem;
+    transition: color 0.2s;
+    z-index: 20; /* Ensure it's above the input */
+    line-height: 1; /* Fix vertical alignment of the icon */
+    outline: none; /* Remove focus outline */
+}
+
+.toggle-btn:hover {
+    color: #333;
+}
+
+.remember-me {
+  margin-top: 10px;
+  font-size: 14px;
+ color:#7d342c ;
+}
+
+.remember-me label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+   
+}
+
+.remember-me input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #4a90e2; /* blue tint for checkbox */
+
+}
+.remember-text {
+  font-family:'Times New Roman', Times, serif; /* Change to any font you want */
+  font-size: 14px;                   /* Adjust size */
+  font-weight: 500;                  /* Optional: boldness */
+ color:#7d342c ;                   /* Text color */
+}

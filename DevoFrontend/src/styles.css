@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+
+/*login*/
+/*
+body { margin: 0; font-family: "Roboto", "Helvetica Neue", "sans-serif";
+ /*border: 5px solid/* #7d342c*/
+ /*	#8d988d;*/
+/*
+ }
+
+html, body {
+  height: 100%; 
+  width: 100%;  
+  margin: 0;    
+  padding: 0;  
+  overflow: auto;
+  box-sizing: border-box;
+ 
+}*/
+
+
+@import "intl-tel-input/build/css/intlTelInput.css";
+
+.iti {
+  width: 100%;
+}
+
+.iti input {
+  height: 50px;
+  border-radius: 25px;
+  border: 2px solid #7b2629;
+  padding-left: 55px !important;
+  font-size: 15px;
+}
+
+.iti__country-list {
+  max-height: 200px;
+  overflow-y: auto;
+}
