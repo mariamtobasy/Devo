@@ -11,7 +11,8 @@ using Microsoft.EntityFrameworkCore; // for FirstOrDefaultAsync
 
 namespace DevoBackend.Controllers
 {
-  [Route("api/[controller]")]
+    
+    [Route("api/[controller]")]
   [ApiController]
   public class AuthController : ControllerBase
   {

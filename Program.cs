@@ -5,6 +5,11 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using DevoBackend.Services;
+using DevoBackend.Hubs;
+using Microsoft.AspNetCore.SignalR;
+using System.Security.Claims;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,7 +33,13 @@ var audience = jwtSection["Audience"];
 // -------------------------
 // 3️⃣ Add controllers
 // -------------------------
-builder.Services.AddControllers();
+builder.Services.AddControllers().
+       AddJsonOptions(options =>
+        {
+            options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+            options.JsonSerializerOptions.MaxDepth = 64;
+        });
+
 
 // -------------------------
 // 4️⃣ Configure JWT authentication
@@ -50,18 +61,38 @@ builder.Services.AddAuthentication(options =>
     ValidAudience = audience,
     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key))
   };
-});
 //.AddCookie(); // Optional cookie auth
+
+// Allow SignalR to receive access token from query string
+options.Events = new JwtBearerEvents
+{
+    OnMessageReceived = context =>
+    {
+        var accessToken = context.Request.Query["access_token"];
+
+        var path = context.HttpContext.Request.Path;
+        if (!string.IsNullOrEmpty(accessToken) && path.StartsWithSegments("/hubs/teams"))
+        {
+            context.Token = accessToken;
+        }
+        return Task.CompletedTask;
+    }
+};
+});
+
 
 // -------------------------
 // 5️⃣ Configure CORS (for Angular)
 // -------------------------
 builder.Services.AddCors(options =>
 {
-  options.AddPolicy("AllowAngular", policy =>
-      policy.WithOrigins("http://localhost:4200")
-            .AllowAnyHeader()
-            .AllowAnyMethod());
+    options.AddPolicy("AllowAngular", policy =>
+    {
+        policy.WithOrigins("http://localhost:4200")
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+             .AllowCredentials();
+          });
 });
 
 // -------------------------
@@ -73,6 +104,9 @@ builder.Services.AddSwaggerGen(c =>
   c.SwaggerDoc("v1", new() { Title = "Devo API", Version = "v1" });
   c.SupportNonNullableReferenceTypes();
 });
+
+builder.Services.AddSignalR();
+
 
 var app = builder.Build();
 
@@ -110,5 +144,15 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+app.MapHub<TeamsHub>("/hubs/teams");
+
 
 app.Run();
+public class CustomUserIdProvider : IUserIdProvider
+{
+    public string GetUserId(HubConnectionContext connection)
+    {
+        // This maps the 'NameIdentifier' claim from your JWT to SignalR's User concept
+        return connection.User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+    }
+}
