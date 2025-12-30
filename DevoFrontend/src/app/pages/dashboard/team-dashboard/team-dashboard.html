@@ -1,0 +1,123 @@
+<div class="team-dashboard-wrap">
+  <aside class="teams-list">
+    <div class="sidebar-header">
+      <h3>Teams</h3>
+    </div>
+    
+    <ul class="team-nav">
+      <li *ngFor="let t of teams" [class.active]="selectedTeam?.id === t.id" (click)="selectTeam(t)">
+        <div class="team-info-mini">
+          <span class="team-name">{{ t.name }}</span>
+          <small class="team-date">{{ t.createdAt | date:'shortDate' }}</small><br/>
+        </div>
+        <button (click)="deleteTeam(t.id!); $event.stopPropagation()" class="btn-icon-delete" title="Delete Team">×</button>
+      </li>
+    </ul>
+
+    <div class="create-team-box">
+      <h4>New Team</h4>
+      <input [(ngModel)]="newTeamName" placeholder="Team name" class="form-control" />
+      <textarea [(ngModel)]="newTeamDescription" placeholder="Description" class="form-control"></textarea><br/>
+      <button (click)="createTeam()" [disabled]="!newTeamName" class="btn-primary-full">Create Team</button>
+    </div>
+  </aside>
+
+  <main class="team-workspace" *ngIf="selectedTeam">
+    <header class="workspace-header">
+      <div class="header-content">
+        <h2>{{ selectedTeam.name }}</h2>
+        <p class="description">{{ selectedTeam.description }}</p>
+      </div>
+    </header>
+
+    <div class="workspace-scroll-area">
+      <section class="management-section">
+        <div class="section-header">
+          <h4>Members ({{ members.length }})</h4>
+          <div class="add-member-inline">
+            <input type="number" [(ngModel)]="newMemberUserId" placeholder="User ID" />
+            <button (click)="addMember()" class="btn-add">Add</button>
+          </div>
+        </div>
+
+        <div class="member-grid">
+          <div *ngFor="let m of members" class="member-card">
+            <div class="member-main">
+              <span class="status-dot" [class.online]="m.isOnline">●</span>
+              <span class="user-id">User {{ m.userId }}</span>
+              <span class="role-badge">{{ m.role }}</span>
+            </div>
+            <button (click)="removeMember(m.userId)" class="btn-remove" title="Remove Member">Remove</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="management-section">
+        <div class="section-header">
+          <h4>Tasks</h4>
+          <div class="task-form-inline">
+            <input [(ngModel)]="newTaskTitle" placeholder="What needs to be done?" />
+            <select [(ngModel)]="newTaskAssignedTo">
+              <option [ngValue]="undefined">Unassigned</option>
+              <option *ngFor="let m of members" [value]="m.userId">User {{ m.userId }}</option>
+            </select>
+            <button (click)="createTask()" [disabled]="!newTaskTitle" class="btn-add">Create Task</button>
+          </div>
+        </div>
+
+        <div class="task-grid">
+          <div *ngFor="let task of tasks" class="task-card">
+            <div class="task-card-body">
+              <div class="task-main">
+                <h5>{{ task.title }}</h5>
+                <button (click)="deleteTask(task.id!)" class="btn-close-small">×</button>
+              </div>
+              <div class="task-details">
+                <span class="badge" [attr.data-status]="task.status">{{ task.status }}</span>
+                <span class="assigned">  Assigned: {{ task.assignedToUserId || 'None' }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <aside class="chat-panel" *ngIf="selectedTeam">
+    <div class="chat-header">
+      <h4>Team Chat</h4>
+    </div>
+
+    <div class="chat-history" id="chatContainer">
+      <div *ngFor="let msg of chatMessages" class="chat-message-row">
+        <div class="chat-bubble-container">
+          <div class="chat-bubble">
+            <div class="bubble-header">
+              <span class="sender">{{ msg.senderName }}</span>
+              <span class="time">{{ msg.sentAt | date:'shortTime' }}</span>
+            </div>
+            <p class="message-text">{{ msg.text }}</p>
+          </div>
+          <button (click)="deleteMessage(msg.id!)" class="delete-btn" title="Delete Message">delete</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-input-container">
+      <input [(ngModel)]="newChatText" 
+             (keyup.enter)="sendChat()" 
+             placeholder="Message #{{selectedTeam.name}}..." 
+             class="chat-input" />
+      <button (click)="sendChat()" class="btn-send">Send</button>
+    </div>
+  </aside>
+
+  <div class="empty-state" *ngIf="!selectedTeam">
+    <div class="empty-content">
+      <div class="icon">👥</div>
+      <h3>Welcome to DevoTeams</h3>
+      <p>Select a team from the sidebar to view tasks and chat with members.</p>
+    </div>
+  </div>
+</div>
+

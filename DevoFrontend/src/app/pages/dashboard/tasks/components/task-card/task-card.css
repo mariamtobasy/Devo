@@ -1,0 +1,69 @@
+/*.task-card {
+  background: white;
+  border-radius: 15px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+
+.tags { display: flex; gap: 8px; margin-bottom: 10px; }
+.tag { background: rgba(255,255,255,0.6); padding: 3px 8px; border-radius: 10px; font-size: 12px; }
+
+.avatars img {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  margin-left: -6px;
+  border: 2px solid white;
+}
+
+.icons { font-size: 14px; }*/
+
+/* src/app/pages/dashboard/tasks/components/task-card/task-card.css */
+.task-card {
+  background: white;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+}
+
+.tags { display:flex; gap:8px; margin-bottom:8px; }
+.tag { background: rgba(124,93,250,0.08); color:#5a48e8; padding: 4px 8px; border-radius:8px; font-size:12px; }
+
+.task-title { margin:0 0 6px 0; font-size:1.05rem; }
+.task-desc { margin:0 0 10px 0; color:#666; font-size:13px; }
+
+/* Move To dropdown styling */
+.meta-row select {
+  font-size: 12px;
+  padding: 3px 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #f5f5f5;
+  color: #333;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.meta-row select:hover {
+  border-color: #888;
+  background-color: #eee;
+}
+
+.meta-row select:focus {
+  border-color: #5a48e8;
+  box-shadow: 0 0 0 2px rgba(90,72,232,0.2);
+}
+
+.meta-row option {
+  padding: 3px 6px;
+  font-size: 12px;
+}
+
+.assignments { font-size:12px; color:#444; }
+.small { font-size:11px; color:#888; margin-top:4px; }
+.email { font-weight:600; font-size:12px; margin-bottom:6px; }
+
+.icons { font-size:13px; color:#666; display:flex; gap:8px; align-items:center; }
+

@@ -1,0 +1,151 @@
+
+.actions .delete {
+  background: #831b1b;
+  color: white;
+}
+
+.empty {
+  text-align: center;
+  color: #777;
+}
+
+/* Main Container */
+.notes-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: var(--bg-color); /* Will be #000000 from our global dark-theme */
+  color: var(--text-color);
+  border-radius: 12px;
+  min-height: 80vh;
+}
+
+.notes-container h2 {
+  text-align: center;
+  color: var(--text-color);
+  margin-bottom: 30px;
+}
+
+/* Form Centering and Styling */
+.note-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 600px; /* Capped for better look */
+  margin: 0 auto 40px auto; /* Centered in the middle */
+  background-color: var(--bg-workspace); /* Slightly lighter black/grey */
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+}
+
+.note-form input,
+.note-form textarea {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--bg-color) !important;
+  color: var(--text-color) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+/* Button Styling (Matching your brown theme) */
+.note-form button, 
+.actions button {
+  background-color: #7b423c;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.note-form button:hover {
+  background-color: #5f302a;
+}
+
+.note-form button.cancel, 
+.actions button.delete {
+  background-color: #932c2a;
+}
+
+/* Note Cards */
+.note-card {
+  background-color: var(--bg-workspace);
+  border: 1px solid var(--border-color);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  color: var(--text-color);
+}
+
+.note-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+}
+
+.note-header h3 {
+  margin: 0;
+  color: #a04c3d; /* Soft brown for titles */
+}
+
+.date {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+/* =========================
+   DARK THEME FOR NOTES
+========================= */
+
+/* Main Container */
+body.dark-theme .notes-container {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* The Add Note Form */
+body.dark-theme .note-form {
+  background-color: #0d0d0d !important; /* Slightly off-black for the box */
+  border: 1px solid #333 !important;
+  max-width: 600px;
+  margin: 0 auto 40px auto; /* Centers the form */
+}
+
+/* Inputs and Textarea */
+body.dark-theme .note-form input,
+body.dark-theme .note-form textarea {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border: 1px solid #444 !important;
+}
+
+/* Note Cards */
+body.dark-theme .note-card {
+  background-color: #0d0d0d !important;
+  border: 1px solid #222 !important;
+  color: #ffffff !important;
+}
+
+/* Titles inside cards */
+body.dark-theme .note-header h3 {
+  color: #c5887d !important; /* Lighter brown title */
+}
+
+/* Dividers */
+body.dark-theme hr {
+  border: 0;
+  border-top: 1px solid #333;
+}

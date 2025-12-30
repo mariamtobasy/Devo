@@ -1,9 +1,13 @@
 .error {
   color: red;
-  margin-top: 10px;
+  margin-top: 0px;
 }
+
+
  .login-page { 
     margin: 0; 
+    padding: 0%;
+  
     font-family: Roboto, "Helvetica Neue", sans-serif;
     /*border: 13px solid  #5C4033;*/
 }
@@ -11,27 +15,28 @@
 /* Styling for the entire page/view */
 .login-container {
   display: flex; /* Use flex to put children side-by-side */
-  height: 100%; /* Take up the full viewport height */
+  height: 100vh; /* Take up the full viewport height */
   width: 100vw; /* Take up the full viewport width */
   overflow: hidden; /* Hide anything that spills over */
   background-color: #f5eaec; /* Light background for the overall container */
    padding: 0; 
+   
 }
 .left-section-wrapper {
-    /* Set this to the size you want the entire left column to occupy (e.g., 35%) */
-    flex: 0 0 35%; 
-    max-width: 65%;
-    /* Center the login-card content both horizontally and vertically */
-    display: flex;
-    align-items: center;    /* Vertical centering */
-    justify-content: center; /* Horizontal centering */
+   .left-section-wrapper {
+    flex:0 0 430px; /* fixed width for left section */
+    max-width: 430px;
+    
 }
+}
+
+
 
 /* 1. Login Card (Left Section) */
 .login-card {
   /* The card takes up roughly 40% of the space, adjust as needed */
-   width: 350px; /* Example fixed width */
-    max-width: 85%; /* Ensures it shrinks on small screens */
+   width: 390px; /* Example fixed width */
+    max-width: 90%; /* Ensures it shrinks on small screens */
     flex: unset; /* Important: removes the old sizing rules */
   background-color: rgba(255, 255, 255, 0.9); /* White background for the card */
   padding: 65px 60px; /* Padding inside the card */
@@ -41,11 +46,13 @@
   justify-content: center; /* Center the content vertically */
   border-radius: 20px;
   overflow-y:auto ;
+  height: 100vh;
 }
 
 .login-card h2 {
   font-size: 2.2rem;
   font-weight: bold;
+  margin-top: -60px;
   margin-bottom: 5px;
   color:#7d342c ;
   font-family:'Times New Roman', Times, serif;
@@ -189,31 +196,8 @@ font-size: 1rem;
   margin: 25px 0  10px 0;
 }
 
-.social-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1px solid #ddd;
- margin: 0 8px;
-  background-repeat: no-repeat;
-  background-position: center;
-  cursor: pointer;
-}
 
-.social-icon.google {
-  background-size: 95%;
-  background-image: url('/assets/google.jpg');
-}
 
-.social-icon.apple {
-  background-image: url('/assets/apple.jpg');
-   background-size: 130%;
-}
-.social-icon.facebook {
-  background-image: url('/assets/facebook.jpg');
-   background-size: 100%;
-   /* background-color:rgb(24, 119, 242);*/
-}
 
 /* Forgot/Register Link Styling */
 .forgot-register-link {

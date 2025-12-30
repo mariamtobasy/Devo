@@ -1,0 +1,29 @@
+<!-- src/app/pages/dashboard/tasks/components/task-card/task-card.html -->
+<div class="task-card">
+  <div class="tags">
+    <span *ngFor="let tag of task.tags" class="tag">{{ tag }}</span>
+  </div>
+
+  <h4 class="task-title">{{ task.title }}</h4>
+  <p class="task-desc">{{ task.description }}</p>
+
+  <div class="meta-row">
+    <div class="assignments">
+      <div class="small">Assigned by</div>
+      <div class="email">{{ task.assignedBy }}</div>
+      <div class="small">Assigned to</div>
+      <div class="email">{{ task.assignedTo }}</div>
+    </div>
+
+<select [(ngModel)]="task.status" (change)="updateStatus()">
+  <option value="todo">Move to To-Do</option>
+  <option value="in-progress">Move to In Progress</option>
+  <option value="review">Move to Review</option>
+  <option value="done">Move to Done</option>
+</select>
+
+
+
+  </div>
+</div>
+

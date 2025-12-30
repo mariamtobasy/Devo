@@ -54,18 +54,7 @@ export class Login implements OnInit, OnDestroy {
     this.userId = this.route.snapshot.paramMap.get('userId') || '';
     console.log('User ID from URL:', this.userId);
 
-    // Uncomment if using Google/Facebook login
-    /*
-    this.authStateSubscription = this.socialAuthService.authState.subscribe((user) => {
-      this.user = user;
-      this.loggedIn = user != null;
-
-      if (this.loggedIn) {
-        console.log('✅ Social login success:', user);
-        this.router.navigate(['/dashboard']);
-      }
-    });
-    */
+   
   }
 
   ngOnDestroy() {
@@ -133,7 +122,7 @@ private loginWithBackend(): void {
       console.log('✅ Login success:', response);
 
       if (response.success && response.token) {
-        localStorage.setItem('token', response.token);
+      //  localStorage.setItem('token', response.token);
         alert('Login successful!');
         this.router.navigate(['/dashboard']); 
       

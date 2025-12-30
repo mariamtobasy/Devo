@@ -1,0 +1,77 @@
+<div class="calendar-container">
+  <!-- Controls -->
+  <div class="calendar-controls">
+    <button mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate">Prev</button>
+    <button mwlCalendarToday [(viewDate)]="viewDate">Today</button>
+    <button mwlCalendarNextView [view]="view" [(viewDate)]="viewDate">Next</button>
+  </div>
+
+  <!-- View Switch -->
+  <div class="calendar-view-buttons">
+    <button [class.active]="view === CalendarView.Month" (click)="setView(CalendarView.Month)">Month</button>
+    <button [class.active]="view === CalendarView.Week" (click)="setView(CalendarView.Week)">Week</button>
+    <button [class.active]="view === CalendarView.Day" (click)="setView(CalendarView.Day)">Day</button>
+  </div>
+
+  <h3 class="calendar-title">{{ viewDate | calendarDate:view + 'ViewTitle':'en' }}</h3>
+
+  <!-- ADD EVENT PANEL -->
+  <div class="add-event-panel">
+    <h4>Add New Event</h4>
+
+    <label>Title:</label>
+    <input type="text" [(ngModel)]="newEvent.title" placeholder="Meeting Title">
+
+    <label>Start:</label>
+    <input type="datetime-local" [(ngModel)]="newEvent.start">
+
+    <label>End:</label>
+    <input type="datetime-local" [(ngModel)]="newEvent.end">
+
+    <label>Notes:</label>
+    <textarea [(ngModel)]="newEvent.notes" placeholder="Add notes here"></textarea>
+
+    <label>Video Link:</label>
+    <input type="text" [(ngModel)]="newEvent.videoCallLink" placeholder="https://meet.google.com/...">
+
+    <button class="add-btn" (click)="addEvent()">Add</button>
+  </div>
+
+  <!-- Event List -->
+  <ul class="event-list">
+    <li *ngFor="let event of events">
+      <strong>{{ event.title }}</strong> - {{ event.start | date:'short' }}
+      <button class="delete-btn" (click)="deleteEvent(event.id ? +event.id : undefined)">Delete</button>
+    </li>
+  </ul>
+
+  <!-- Calendar Views -->
+  <ng-container [ngSwitch]="view">
+    <mwl-calendar-month-view
+      *ngSwitchCase="CalendarView.Month"
+      [viewDate]="viewDate"
+      [events]="events"
+      (eventClicked)="handleEventClick($event.event)">
+    </mwl-calendar-month-view>
+
+    <mwl-calendar-week-view
+      *ngSwitchCase="CalendarView.Week"
+      [viewDate]="viewDate"
+      [events]="events"
+      (eventClicked)="handleEventClick($event.event)">
+    </mwl-calendar-week-view>
+
+    <mwl-calendar-day-view
+      *ngSwitchCase="CalendarView.Day"
+      [viewDate]="viewDate"
+      [events]="events"
+      (eventClicked)="handleEventClick($event.event)">
+    </mwl-calendar-day-view>
+  </ng-container>
+
+  <!-- Event Legend -->
+  <p class="event-legend">
+    Click on an event to see notes. Events are color-coded by status: 
+    <span class="booked">Booked.</span>
+  </p>
+</div>

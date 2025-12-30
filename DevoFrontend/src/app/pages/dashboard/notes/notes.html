@@ -1,0 +1,43 @@
+<div class="notes-container">
+  <h2>📝 Employee Notes</h2>
+
+  <!-- Add/Edit Form -->
+  <div class="note-form">
+    <input 
+      type="text" 
+      placeholder="Note Title" 
+      [(ngModel)]="newTitle" required >
+
+    <textarea 
+      placeholder="Write your note here..." 
+      rows="4"
+      [(ngModel)]="newContent" required></textarea>
+
+    <button *ngIf="editId === null" (click)="addNote()">➕ Add Note</button>
+    <button *ngIf="editId !== null" (click)="updateNote()">💾 Update</button>
+    <button *ngIf="editId !== null" class="cancel" (click)="cancelEdit()">✖ Cancel</button>
+  </div>
+
+  <hr>
+
+  <!-- Notes List -->
+  <div *ngIf="notes.length > 0; else emptyMessage">
+    <div class="note-card" *ngFor="let note of notes">
+      <div class="note-header">
+        <h3>{{ note.title }}</h3>
+        <span class="date">{{ note.date }}</span>
+      </div>
+
+      <p>{{ note.content }}</p>
+
+      <div class="actions">
+        <button (click)="startEdit(note)">✏ Edit</button>
+        <button class="delete" (click)="deleteNote(note.id)">🗑 Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #emptyMessage>
+    <p class="empty">No notes yet. Start writing!</p>
+  </ng-template>
+</div>

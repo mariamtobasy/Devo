@@ -1,0 +1,49 @@
+<!-- src/app/pages/dashboard/tasks/components/create-task/create-task.html -->
+<div class="modal-bg" (click)="close.emit()">
+  <div class="modal" (click)="$event.stopPropagation()">
+    <h2 class="modal-title">Create New Task</h2>
+
+
+    <div class="form-group">
+      <label>Title</label>
+      <input type="text" [(ngModel)]="newTask.title" placeholder="Task title" />
+    </div>
+
+    <div class="form-group">
+      <label>Description</label>
+      <textarea [(ngModel)]="newTask.description" placeholder="Add a short description"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Tags</label>
+      <div class="tag-input">
+        <input #tagInput type="text" placeholder="Add tag..." />
+        <button class="small-btn" (click)="addTag(tagInput)">Add</button>
+      </div>
+      <div class="tags-preview">
+        <span class="tag" *ngFor="let tag of newTask.tags">{{ tag }}</span>
+      </div>
+    </div>
+
+   <div class="form-group">
+  <label>Assign To (email)</label>
+  <input type="email" [(ngModel)]="newTask.assignedTo" placeholder="Enter employee email" />
+</div>
+
+
+    <div class="form-group">
+      <label>Status</label>
+      <select [(ngModel)]="newTask.status">
+        <option value="todo">To Do</option>
+        <option value="in-progress">In Progress</option>
+        <option value="review">In Review</option>
+        <option value="done">Done</option>
+      </select>
+    </div>
+
+    <div class="modal-actions">
+      <button class="cancel-btn" (click)="close.emit()">Cancel</button>
+      <button class="create-btn" (click)="create()">Create</button>
+    </div>
+  </div>
+</div>

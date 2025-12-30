@@ -1,64 +1,91 @@
+
+
 <div class="master-layout">
+  
 
   <!-- Sidebar / Master Menu -->
-  <aside class="sidebar">
-    <h2>Devo</h2>
+  <aside class="sidebar" [class.collapsed]="!sidebarOpen">
+    
+    <!-- Toggle button (can be above sidebar or in main layout) -->
+<button class="sidebar-toggle" (click)="toggleSidebar()">☰</button>
+
+
 
     <ul>
       <!-- 1. For You -->
-      <li><a routerLink="/dashboard">For You</a></li>
+      <li id="FU"><a routerLink="/dashboard">🏠 For You</a></li>
 
-      <!-- 2. Recent (drawer popup) -->
-      <li><button (click)="toggleDrawer('recent')">Recent</button></li>
+     <li>
+  <button (click)="toggleSubmenu('recent')">🕒 Recent</button>
+  <ul class="submenu" [class.open]="openSubmenu === 'recent'">
+    <li *ngFor="let item of recentItems">{{ item }}</li>
+    <li *ngIf="recentItems.length === 0">No recent actions yet</li>
+  </ul>
+</li>
 
-      <!-- 3. Starred (drawer popup) -->
-      <li><button (click)="toggleDrawer('starred')">Starred</button></li>
 
-      <!-- 4. Done (placeholder page) -->
-      <li>
-        <!-- Uncomment when DoneComponent is ready -->
-        <!-- <a routerLink="/done">Done</a> -->
-        <span>Done (coming soon)</span>
-      </li>
 
-      <!-- 5. Summary (placeholder page) -->
-      <li>
-        <!-- <a routerLink="/summary">Summary</a> -->
-        <span>Summary (coming soon)</span>
-      </li>
+<li>
+  <button (click)="toggleSubmenu('reminder')">🔔 Reminder</button>
+  <ul class="submenu" [class.open]="openSubmenu === 'reminder'">
+    <li>{{ reminderMessage }}</li>
+  </ul>
+</li>
 
+
+     
+   <li>
+  <button (click)="toggleSubmenu('focusRule')">⏱️ Focus Timer Tip</button>
+  <ul class="submenu" [class.open]="openSubmenu === 'focusRule'">
+    <li class="focus-tip">
+      <div class="focus-emoji">🎯</div>
+      <div class="focus-text">
+        <strong>Work: 25 min</strong> / <strong>Rest: 5 min</strong><br>
+        Use your Focus Timer to stay productive!
+      </div>
+    </li>
+  </ul>
+</li>
+
+
+    
       <!-- 8. Contact Us -->
       <li>
-        <!-- <a routerLink="/contact">Contact Us</a> -->
-        <span>Contact Us (coming soon)</span>
+        <button (click)="openContact()">📞 Contact Us</button>
       </li>
     </ul>
 
-    <!-- 6 & 7. Last Starred / Recent Items -->
-    <div class="last-items">
-      <p><strong>Last Starred Item:</strong> {{ lastStarred }}</p>
-      <p><strong>Last Recent Item:</strong> {{ lastRecent }}</p>
-    </div>
+   
+
+
+   
+
   </aside>
 
   <!-- Main Content -->
   <main class="content">
     <router-outlet></router-outlet>
+
+    <!-- CONTACT US MODAL -->
+<div class="contact-modal" *ngIf="contactOpen">
+  <div class="modal-content">
+    <button class="close-btn" (click)="closeContact()">✖</button>
+    <h2>Contact us</h2>
+    <p>If you are interested or have any questions, send us a message.</p>
+
+    <form #contactForm="ngForm" (ngSubmit)="sendContact(contactForm.value)">
+      <div class="row">
+        <input type="text" name="name" ngModel placeholder="Your Name" required />
+        <input type="email" name="email" ngModel placeholder="Your Email" required />
+      </div>
+      <input type="text" name="subject" ngModel placeholder="Subject" />
+      <textarea name="message" ngModel placeholder="Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</div>
+
   </main>
 
-  <!-- Drawers (Recent & Starred) -->
-  <div *ngIf="activeDrawer" class="drawer-backdrop" (click)="closeDrawer()"></div>
-
-  <div *ngIf="activeDrawer === 'recent'" class="drawer">
-    <h3>Recent Items</h3>
-    <p>No recent items yet.</p>
-    <button (click)="closeDrawer()">Close</button>
-  </div>
-
-  <div *ngIf="activeDrawer === 'starred'" class="drawer">
-    <h3>Starred Items</h3>
-    <p>No starred items yet.</p>
-    <button (click)="closeDrawer()">Close</button>
-  </div>
 
 </div>

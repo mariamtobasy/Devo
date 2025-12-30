@@ -1,0 +1,59 @@
+
+
+<div class="tasks-header">
+  <button class="add-task-btn" (click)="openCreate()">+ Add Task</button>
+</div>
+
+<div class="kanban-board">
+  <!-- TO-DO COLUMN -->
+  <app-task-list
+    [title]="'To-Do List'"
+    [status]="'todo'"
+    [tasks]="tasks"
+    [role]="role"
+    (statusChanged)="updateTaskStatus($event)">
+  </app-task-list>
+
+  <!-- IN PROGRESS -->
+  <app-task-list
+    [title]="'In Progress'"
+    [status]="'in-progress'"
+    [tasks]="tasks"
+    [role]="role"
+      (statusChanged)="updateTaskStatus($event)">
+  </app-task-list>
+
+  <!-- IN REVIEW -->
+  <app-task-list
+    [title]="'In Review'"
+    [status]="'review'"
+    [tasks]="tasks"
+    [role]="role"
+    (statusChanged)="updateTaskStatus($event)">
+  </app-task-list>
+
+  <!-- DONE -->
+  <app-task-list
+    [title]="'Done'"
+    [status]="'done'"
+    [tasks]="tasks"
+    [role]="role"
+    (statusChanged)="updateTaskStatus($event)">
+  </app-task-list>
+</div>
+
+<!-- CREATE TASK MODAL -->
+<app-create-task 
+   *ngIf="showCreateModal"
+   [assignedBy]="currentUserEmail"
+   (close)="showCreateModal = false"
+   (created)="onTaskCreated($event)">
+</app-create-task>
+
+
+
+
+
+
+
+

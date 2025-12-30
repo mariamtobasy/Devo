@@ -1,4 +1,64 @@
-<!-- dashboard.component.html -->
-<h1>Dashboard</h1>
-<p>This is the base dashboard. Content will come later.</p>
+<div class="dashboard-wrapper">
+  <div class="dashboard-sidebar">
+    <!-- Sidebar content -->
+  </div>
+
+  <div class="dashboard-content">
+
+   <!-- Optional header -->
+    <div class="dashboard-header">
+      <app-header></app-header>
+    </div>
+
+    <!-- Space between header and widgets -->
+    <div class="header-space"></div>
+
+    <!-- Widget bar (floating cards) -->
+    <div class="dashboard-widgets">
+      <app-mini-timer></app-mini-timer>
+      <app-motivational-quote></app-motivational-quote>
+    <app-tiny-game></app-tiny-game>
+   </div>
+
+    <!-- Space between widgets and tabs -->
+    <div class="widgets-space"></div>
+
+
+    <!-- Tabs -->
+    <div class="dashboard-tabs">
+  <button class="tab-item" 
+          [class.active]="selectedTab === 'my-list'" 
+          (click)="selectTab('my-list')">My List</button>
+
+  <button class="tab-item" 
+          [class.active]="selectedTab === 'tasks'" 
+          (click)="selectTab('tasks')">Tasks</button>
+
+  <button class="tab-item" 
+          [class.active]="selectedTab === 'notes'" 
+          (click)="selectTab('notes')">Notes</button>
+
+  <button class="tab-item" 
+          [class.active]="selectedTab === 'calendar'" 
+          (click)="selectTab('calendar')">Calendar</button>
+
+
+
+  <button class="tab-item" 
+          [class.active]="selectedTab === 'team-dashboard'" 
+          (click)="selectTab('team-dashboard')">Teams</button>
+</div>
+
+
+  <div class="dashboard-main">
+  <app-my-list *ngIf="selectedTab === 'my-list'"></app-my-list>
+  <app-tasks *ngIf="selectedTab === 'tasks'"></app-tasks>
+  <app-notes *ngIf="selectedTab === 'notes'"></app-notes>
+  <app-calendar *ngIf="selectedTab === 'calendar'"></app-calendar>
+  <app-team-dashboard *ngIf="selectedTab === 'team-dashboard'"></app-team-dashboard>
+</div>
+
+  </div>
+</div>
+
 

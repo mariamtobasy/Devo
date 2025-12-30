@@ -1,0 +1,22 @@
+<!-- src/app/pages/dashboard/tasks/components/task-list/task-list.html -->
+<div class="kanban-column" [ngClass]="status">
+  <div class="column-header">
+    <h3>{{ title }}</h3>
+  </div>
+
+  <div class="tasks-container">
+    <ng-container *ngFor="let task of tasks">
+      <app-task-card *ngIf="task.status === status" [task]="task" [role]="role"></app-task-card>
+    </ng-container>
+  </div>
+</div>
+
+
+<!--
+<app-task-card 
+ < *ngFor="let task of tasks" 
+  [task]="task" 
+  [role]="role"
+  (statusChanged)="onTaskStatusChanged($event)">
+</app-task-card>
+-->

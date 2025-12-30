@@ -1,0 +1,95 @@
+<div class="mylist-container">
+
+  <!-- TASK LIST -->
+  <div class="task-list">
+
+    <div
+      *ngFor="let task of tasks"
+      class="task-card"
+      [class.done]="task. isCompleted"
+    >
+
+      <!-- PRIORITY BOOKMARK -->
+      <div class="priority-bookmark" [ngClass]="task.priority"></div>
+
+      <!-- TASK INFO -->
+      <div class="task-info">
+        <p class="title">{{ task.title }}</p>
+        <small class="time">{{ task.time }}</small>
+        <small class="description" *ngIf="task.description">
+          {{ task.description }}
+        </small>
+      </div>
+
+      <!-- ACTIONS -->
+      <div class="task-actions">
+        <button
+          type="button"
+          class="done-btn"
+          (click)="toggleDone(task)"
+          [title]="task. isCompleted ? 'Undo' : 'Mark done'"
+        >
+          ✔
+        </button>
+
+        <button
+          type="button"
+          class="delete-btn"
+          (click)="deleteTask(task)"
+          title="Delete"
+        >
+          🗑️
+        </button>
+      </div>
+    </div>
+
+    <!-- EMPTY STATE -->
+    <p class="empty-state" *ngIf="tasks.length === 0">
+      🎉 No tasks yet — add your first one
+    </p>
+
+  </div>
+
+  <!-- FLOATING ADD BUTTON -->
+  <button type="button" class="add-task-btn" (click)="openAddTaskModal()">+</button>
+
+  <!-- ADD TASK MODAL -->
+  <div class="add-task-modal" *ngIf="showAddModal">
+    <div class="modal-content">
+
+      <h3>Add New Task</h3>
+
+      <input
+        type="text"
+        placeholder="Task title"
+        [(ngModel)]="newTask.title"
+      />
+
+      <textarea
+        placeholder="Description (optional)"
+        [(ngModel)]="newTask.description"
+      ></textarea>
+
+      <select [(ngModel)]="newTask.priority">
+        <option value="" disabled>Priority</option>
+        <option value="urgent">Urgent</option>
+        <option value="medium">Medium</option>
+        <option value="low">Low</option>
+      </select>
+
+      <div class="modal-buttons">
+        <button
+          type="button"
+          class="primary"
+          (click)="addTask()"
+          [disabled]="!newTask.title || !newTask.priority"
+        >
+          Add
+        </button>
+        <button type="button" (click)="closeAddTaskModal()">Cancel</button>
+      </div>
+
+    </div>
+  </div>
+
+</div>

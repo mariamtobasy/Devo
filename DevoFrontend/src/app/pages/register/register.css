@@ -57,27 +57,7 @@
   font-family: 'Times New Roman', Times, serif;
 }
 
-.social-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1px solid #ddd;
-  margin: 0 8px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain; /* adjust so icons fit */
-  cursor: pointer;
-}
 
-.social-icon.google {
-  background-image: url('/assets/google.jpg');
-}
-.social-icon.apple {
-  background-image: url('/assets/apple.jpg');
-}
-.social-icon.facebook {
-  background-image: url('/assets/facebook.jpg');
-}
 
 
 /* Input Fields */

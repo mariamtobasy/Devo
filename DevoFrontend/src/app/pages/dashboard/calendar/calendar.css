@@ -1,0 +1,244 @@
+
+.calendar-controls button:hover,
+.calendar-view-buttons button:hover,
+.add-event-panel button:hover {
+  background-color: #552b27;
+}
+
+
+/* Add Event Panel */
+.add-event-panel {
+  background-color: #f1f1f1;
+  padding: 8px;              /* smaller padding */
+  border-radius: 8px;
+  margin-bottom: 15px;
+  width: 90%;                /* reduce width */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Event List */
+.event-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 15px;
+}
+
+.delete-btn {
+  background-color: #932c2a;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.delete-btn:hover {
+  background-color: #ab2320;
+}
+
+/* Smaller calendar cells */
+.mwl-calendar-month-view .cal-cell,
+.mwl-calendar-week-view .cal-cell {
+  padding: 4px;
+  font-size: 12px;
+}
+
+/* Optional: highlight current day */
+.mwl-calendar-day-view .cal-day-current,
+.mwl-calendar-month-view .cal-day-current {
+  background-color: #e0f7fa;
+  border-radius: 50%;
+}
+
+/* Event titles smaller */
+.mwl-calendar-week-view .cal-event,
+.mwl-calendar-month-view .cal-event {
+  font-size: 12px;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+/* Event legend colors */
+.event-legend .booked { color: red; }
+.event-legend .free { color: green; }
+.event-legend .pending { color: orange; }
+
+/* Responsive */
+@media (max-width: 500px) {
+  .calendar-container { width: 95%; padding: 10px; }
+}
+
+
+/* Theme-friendly Buttons */
+.calendar-controls button,
+.calendar-view-buttons button,
+.add-event-panel button {
+  padding: 10px 25px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  background-color: #7b423c; /* Your signature brown */
+  color: white !important;
+  transition: background-color 0.2s ease;
+}
+
+.add-event-panel h4 {
+  color: var(--text-color);
+  margin-top: 0;
+}
+
+/* Force the entire calendar grid to be black in Dark Mode */
+.dark-theme .cal-month-view,
+.dark-theme .cal-week-view,
+.dark-theme .cal-day-view,
+.dark-theme .cal-time-events,
+.dark-theme .cal-day-columns {
+  background-color: #000000 !important;
+}
+
+/* Fix the white 'zebra' stripes in the week/day view */
+.dark-theme .cal-day-columns .cal-hour-odd,
+.dark-theme .cal-day-columns .cal-hour-even,
+.dark-theme .cal-hour-segment {
+  background-color: #000000 !important;
+  border-bottom: 1px solid #333 !important; /* Subtle grid lines */
+}
+
+/* Fix the time labels on the left */
+.dark-theme .cal-time {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* Fix the header (Days of the week) */
+.dark-theme .cal-header,
+.dark-theme .cal-day-headers {
+  background-color: #000000 !important;
+  border-bottom: 2px solid #444 !important;
+}
+
+.dark-theme .cal-cell-row {
+  border-color: var(--border-color) !important;
+}
+
+/* Event List */
+.event-list li {
+  color: var(--text-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Fix for Dropdowns (Notifications/Settings) */
+/* This ensures the header dropdowns stay ABOVE the calendar */
+app-header {
+  position: relative;
+  z-index: 1000;
+}
+/* Container - Fixed width and centering */
+.calendar-container {
+  width: 100%;             /* Changed from 110% to fit parent */
+  max-width: 950px;        /* Increased slightly for better fit */
+  margin: 0 auto;          /* Centering */
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-color); 
+  color: var(--text-color);
+  padding: 20px;           /* More breathing room */
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-sizing: border-box;  /* Ensures padding doesn't add to width */
+}
+
+/* Controls - Better Spacing */
+.calendar-controls,
+.calendar-view-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;               /* Reduced gap so they don't push outside */
+  margin-bottom: 20px;
+  flex-wrap: wrap;         /* Allows buttons to wrap on small screens */
+}
+
+/* Button Styling - Standardized with your Dashboard Theme */
+.calendar-controls button,
+.calendar-view-buttons button,
+.add-event-panel button {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background-color: #7b423c; /* Matching your brown theme */
+  color: white !important;
+  transition: all 0.2s ease;
+}
+
+.calendar-controls button:hover,
+.calendar-view-buttons button:hover,
+.add-event-panel button:hover {
+  background-color: #552b27;
+  transform: translateY(-1px);
+}
+
+.calendar-view-buttons button.active {
+  background-color: #5f302a;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Title Styling */
+.calendar-title {
+  margin: 20px 0;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: var(--text-color);
+}
+
+/* Add Event Panel - Centering Fix */
+.add-event-panel {
+  background-color: var(--bg-workspace); 
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+
+  /* This is the magic for centering */
+  width: 95%;           /* Width of the panel relative to the calendar */
+  max-width: 600px;     /* Prevents it from getting too wide on big screens */
+  margin: 25px auto;    /* 'auto' on left/right centers block elements */
+  display: block;       /* Ensures it behaves as a block for the margin auto */
+  
+  /* Optional: keeps text inside aligned left while the box is centered */
+  text-align: left; 
+}
+
+/* Ensure the header inside the panel is centered too if you want */
+.add-event-panel h4 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+.add-event-panel input,
+.add-event-panel textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  box-sizing: border-box;
+}
+
+/* Ensure the library components respect the container width */
+mwl-calendar-month-view,
+mwl-calendar-week-view,
+mwl-calendar-day-view {
+  width: 100%;
+  display: block;
+}
+
+/* Dropdown fix: ensure they stay above this container */
+.calendar-container {
+  position: relative;
+  z-index: 1; /* Keeps it below header dropdowns */
+}

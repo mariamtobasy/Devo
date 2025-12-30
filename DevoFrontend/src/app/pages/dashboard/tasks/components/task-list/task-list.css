@@ -1,0 +1,16 @@
+/* src/app/pages/dashboard/tasks/components/task-list/task-list.css */
+.kanban-column {
+  width: 300px;
+  padding: 12px;
+  border-radius: 12px;
+  overflow-y: auto;
+  min-height: 200px;
+}
+
+.todo { background: #E6F0FF; }
+.in-progress { background: #E3F8E6; }
+.review { background: #FFF1E5; }
+.done { background: #E5F6F8; }
+
+.column-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; }
+.tasks-container { display:flex; flex-direction:column; gap:12px; }

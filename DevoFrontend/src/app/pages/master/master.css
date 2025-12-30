@@ -1,53 +1,105 @@
+/* Global font */
+* {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Layout */
 .master-layout {
   display: flex;
   height: 100vh;
   overflow: hidden;
 }
+/* Sidebar menu items spacing */
+.sidebar ul li {
+  margin-bottom: 20px; /* more space between buttons */
+}
 
-/* Sidebar */
+
+/* GLASS SIDEBAR */
+/* GLASSED DARK-RED SIDEBAR (matches your reference) */
 .sidebar {
-  width: 250px;
-  background-color: #2f3e46;
-  color: white;
-  padding: 20px;
+  width: 260px;
+  padding: 15px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  color: #ffffff;
+
+  /* Key part: real glass + strong dark red tint */
+  background: linear-gradient(
+      to bottom,
+      rgba(125, 52, 44, 0.8),   /* top tint */
+      rgba(125, 52, 44, 0.4)    /* lower transparent fade */
+  );
+
+  backdrop-filter: blur(22px);          /* smooth blur */
+  -webkit-backdrop-filter: blur(22px);
+
+  /* Thin border using the exact color */
+  border-right: 3px solid #7d342c;
+
+  box-shadow: 4px 0 30px rgba(0, 0, 0, 0.35);  
+
+  border-radius: 0 20px 20px 0;  
 }
 
-.sidebar h2 {
-  margin-bottom: 20px;
-}
 
+
+
+/* MENU LIST */
 .sidebar ul {
   list-style: none;
   padding: 0;
+  margin: 0;              /* reset broken spacing */
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+   /* moves the whole list down */
 }
+
+/* Add spacing ONLY under "For You" */
+#FU {
+  margin-top: 130px;        /* lower For You but keep others aligned */
+}
+
 
 .sidebar a,
 .sidebar button,
 .sidebar span {
-  display: block;
-  padding: 10px;
-  color: white;
+  display: flex;
+  align-items: center;
+  gap: 12px;               /* spacing between emoji + text */
+  padding: 12px 14px;
+  color: rgb(97, 5, 5);
   text-decoration: none;
-  background: none;
+  background: rgba(255, 255, 255, 0.05);
   border: none;
-  width: 100%;
-  text-align: left;
+  border-radius: 10px;
+  font-size: 1.05rem;
   cursor: pointer;
+  transition: 0.2s ease;
 }
 
 .sidebar a:hover,
+.sidebar span:hover,
 .sidebar button:hover {
-  background-color: #354f52;
-  border-radius: 6px;
+  background: rgba(76, 6, 6, 0.15);
 }
 
+/* LAST ITEMS BOXES */
 .last-items {
-  font-size: 0.85rem;
-  opacity: 0.8;
-  margin-top: 20px;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.last-item-box {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  backdrop-filter: blur(10px);
 }
 
 /* Main content */
@@ -58,22 +110,191 @@
   overflow-y: auto;
 }
 
-/* Drawers */
-.drawer-backdrop {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.3);
-  z-index: 100;
+/* Collapsible submenu inside sidebar */
+.submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 12px; /* optional indent */
 }
 
-.drawer {
-  position: fixed;
-  top: 0; right: 0;
-  width: 300px;
-  height: 100%;
-  background-color: white;
-  padding: 20px;
-  z-index: 101;
-  box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+.submenu.open {
+  max-height: 500px; /* enough to show all items */
+  
 }
+.submenu li {
+  background: none;
+  padding: 6px 8px;
+  margin: 0;
+  border-radius: 0;
+
+  font-size: 0.9rem;
+  color: #f1d4d4;
+  line-height: 1.4;
+
+  cursor: default;
+}
+
+.focus-tip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+
+.focus-emoji {
+  font-size: 1.8rem;
+}
+
+.focus-text {
+  font-size: 0.9rem;
+  line-height: 1.3;
+  color: #ffe8a1; /* soft yellow for visibility */
+}
+
+.focus-text strong {
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+
+/* Sidebar toggle button */
+.sidebar-toggle {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: rgba(125,52,44,0.8);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 10px;
+  cursor: pointer;
+  z-index: 200;
+   
+}
+
+/* Collapsed sidebar */
+.sidebar.collapsed {
+  width: 60px;       /* small width */
+  padding: 10px;
+}
+
+.sidebar.collapsed h2,
+.sidebar.collapsed .last-items,
+.sidebar.collapsed .submenu,
+.sidebar.collapsed li span {
+  display: none;     /* hide text labels */
+}
+
+.sidebar.collapsed a,
+.sidebar.collapsed button {
+  justify-content: center;  /* center icons */
+  text-align: center;
+  padding: 12px 0;
+}
+
+.contact-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 500;
+}
+
+.contact-modal .modal-content {
+  position: relative;
+  background: white;
+  padding: 25px 30px;
+  width: 450px;
+  max-width: 90%;
+  border-radius: 12px;
+  border: 4px solid;
+  border-image-slice: 1;
+  border-width: 4px;
+  border-image-source: repeating-linear-gradient(
+      45deg,
+      #ff3b3b,
+      #ff3b3b 6px,
+      #d3beaf 6px,
+      #cbc8b9 12px
+  );
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-modal .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.contact-modal h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.contact-modal p {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.contact-modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-modal .row {
+  display: flex;
+  gap: 10px;
+}
+
+.contact-modal input,
+.contact-modal textarea {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contact-modal textarea {
+  resize: none;
+  min-height: 80px;
+}
+
+.contact-modal button[type="submit"] {
+  background-color: #863d2b;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.contact-modal button[type="submit"]:hover {
+  background-color: #2a5ecc;
+}
+
+
+

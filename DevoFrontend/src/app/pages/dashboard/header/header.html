@@ -1,0 +1,333 @@
+<header class="header">
+  <!-- Left: Logo & Sidebar -->
+  <div class="header-left">
+    <button class="sidebar-toggle" (click)="toggleSidebar()">☰</button>
+    <a routerLink="/dashboard" class="logo">
+      <img src="logo7.png" alt="Logo" />
+      <span>DEVO</span>
+    </a>
+  </div>
+
+  <!-- Center: Search -->
+   <div class="search-backdrop" *ngIf="searchTerm" (click)="clearSearch()"></div>
+  <div class="header-center">
+    <div class="search-wrapper">
+      <input 
+        type="text" 
+        [(ngModel)]="searchTerm" 
+        (input)="onSearch($event)" 
+        [placeholder]="text.searchPlaceholder"
+      />
+      
+      <div class="search-results" *ngIf="filteredResults.length > 0">
+        <div *ngFor="let result of filteredResults" 
+             class="result-item" 
+             (click)="handleResultClick(result)">
+          <span class="type-badge">
+            {{ result.icon }} {{ result.category }}
+          </span>
+          <span class="title">{{ result.title }}</span>
+        </div>
+      </div>
+
+      <div class="search-results" *ngIf="searchTerm && filteredResults.length === 0">
+        <div class="result-item">No results found for "{{ searchTerm }}"</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right: Dropdowns -->
+  <div class="header-right">
+    <!-- Notifications -->
+   <div class="dropdown">
+  <button (click)="toggleNotifications(); authService.markAllAsRead()" class="notification-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path>
+  <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path>
+</svg><span class="badge-count" *ngIf="authService.getUnreadCount() > 0">
+      {{ authService.getUnreadCount() }}
+    </span>
+  </button>
+
+  <div class="dropdown-content no-shadow" *ngIf="showNotifications">
+     </div>
+</div>
+
+    <!-- Help -->
+   <div class="dropdown1">
+  <button class="trigger-btn" (click)="toggleHelp()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"></circle>
+      <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+      <line x1="12" y1="17" x2="12.01" y2="17"></line>
+    </svg>
+  </button>
+
+  <div class="dropdown-content" *ngIf="showHelp">
+    <button class="dropdown-item" (click)="openHelpArticles()">
+      {{ text.helpArticles }}
+    </button>
+    
+    <button class="dropdown-item" (click)="contactSupport()">
+      {{ text.support }}
+    </button>
+    
+    <button class="dropdown-item" (click)="sendFeedback()">
+      {{ text.feedback }}
+    </button>
+    
+    <button class="dropdown-item" (click)="showShortcuts()">
+      {{ text.shortcuts }}
+    </button>
+  </div>
+</div>
+    <!-- Settings -->
+    <div class="dropdown">
+      <button (click)="toggleSettings()"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12.22 2h-.44a2 2 0 0 0-2 2a2 2 0 0 1-2 2a2 2 0 0 0-2 2a2 2 0 0 1-2 2a2 2 0 0 0-2 2a2 2 0 0 1 0 .44a2 2 0 0 0 2 2a2 2 0 0 1 2 2a2 2 0 0 0 2 2a2 2 0 0 1 2 2a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2a2 2 0 0 1 2-2a2 2 0 0 0 2-2a2 2 0 0 1 2-2a2 2 0 0 0 2-2V12a2 2 0 0 0-2-2a2 2 0 0 1-2-2a2 2 0 0 0-2-2a2 2 0 0 1-2-2a2 2 0 0 0-2-2Z"></path>
+  <circle cx="12" cy="12" r="3"></circle>
+</svg></button>
+      <div class="dropdown-content settings-content" *ngIf="showSettings">
+        <div class="settings-list">
+          <p (click)="openSection('account')" [class.active]="currentSection === 'account'">{{ text.account }}</p>
+          <p (click)="openSection('password')" [class.active]="currentSection === 'password'">{{ text.password }}</p>
+          <p (click)="openSection('email')" [class.active]="currentSection === 'email'">{{ text.email }}</p>
+          <p (click)="openSection('security')" [class.active]="currentSection === 'security'">{{ text.security }}</p>
+          <p (click)="openSection('privacy')" [class.active]="currentSection === 'privacy'">{{ text.privacy }}</p>
+          <p (click)="openSection('preferences')" [class.active]="currentSection === 'preferences'">{{ text.preferences }}</p>
+         
+        </div>
+        
+
+        <div class="settings-details">
+          <!-- Account -->
+          <div *ngIf="currentSection === 'account'">
+            <h3>{{ text.account }}</h3>
+            <p><strong>{{ text.emailLabel }}:</strong> {{ user?.email }}</p>
+            <p><strong>{{ text.usernameLabel }}:</strong> {{ user?.userName || user?.fullName }}</p>
+          </div>
+          <!-- Password -->
+          <div *ngIf="currentSection === 'password'">
+            <h3>{{ text.password }}</h3>
+            <label>{{ text.oldPasswordLabel }}</label>
+            <input type="password" [(ngModel)]="oldPassword" />
+            <label>{{ text.newPasswordLabel }}</label>
+            <input type="password" [(ngModel)]="newPassword" />
+            <button (click)="changePassword()">{{ text.updateBtn }}</button>
+          </div>
+
+          <!-- Email -->
+          <div *ngIf="currentSection === 'email'">
+            <h3>{{ text.email }}</h3>
+            <label>{{ text.newEmailLabel }}</label>
+            <input type="email" [(ngModel)]="newEmail" />
+            <button (click)="updateEmail()">{{ text.saveBtn }}</button>
+          </div>
+
+       <div *ngIf="currentSection === 'preferences'">
+  <h3>{{ language === 'English' ? 'Language & Region' : 'اللغة والمنطقة' }}</h3>
+  
+  <label>{{ language === 'English' ? 'Select Language' : 'اختر اللغة' }}</label>
+  <div class="lang-toggle-group">
+    <button 
+      type="button"
+      [class.active-lang]="language === 'English'" 
+      (click)="changeLanguage('English')">
+      🇺🇸 English
+    </button>
+    <button 
+      type="button"
+      [class.active-lang]="language === 'Arabic'" 
+      (click)="changeLanguage('Arabic')">
+      🇯🇴 العربية
+    </button>
+  </div>
+
+  <label>{{ language === 'English' ? 'Timezone' : 'المنطقة الزمنية' }}</label>
+  <select [(ngModel)]="timezone">
+    <option>UTC</option>
+    <option>GMT+3 (Jordan)</option>
+  </select>
+
+  <button class="save-pref-btn" (click)="updatePreferences()">
+    {{ language === 'English' ? 'Save Preferences' : 'حفظ الإعدادات' }}
+  </button>
+</div>
+
+          <!-- Security -->
+          <div *ngIf="currentSection === 'security'">
+            <h3>{{ text.security }}</h3>
+            <p>{{ text.securityInfo }}</p>
+          </div>
+
+          <!-- Privacy -->
+         <div *ngIf="currentSection === 'privacy'" class="privacy-settings">
+  <h3>{{ text.privacy }}</h3>
+  <p class="description">{{ text.privacyDesc }}</p>
+  
+  <div class="toggle-row">
+    <div class="toggle-text">
+      <strong>{{ text.cookieLabel }}</strong>
+      <span>{{ text.cookieDesc }}</span>
+    </div>
+    <label class="switch">
+      <input type="checkbox" [(ngModel)]="cookiesAccepted" (change)="setCookiesConsent()">
+      <span class="slider round"></span>
+    </label>
+  </div>
+</div>
+
+          <!-- Server Response -->
+    <div class="result" *ngIf="settingsResponse">
+     <strong>{{ language === 'English' ? 'Server' : 'الخادم' }}:</strong> {{ settingsResponse }}
+    </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Profile -->
+    <div class="dropdown profile-dropdown">
+      <button class="profile-btn" (click)="toggleProfile()">
+        <div class="initials-logo">{{ userInitials }}</div>
+      </button>
+
+      <div class="profile-side-panel" *ngIf="showProfile">
+        <button class="close-btn" (click)="toggleProfile()">×</button>
+      <div class="profile-photo-container" *ngIf="user">
+ <div class="photo-wrapper">
+ <img 
+  [src]="user.profilePhotoUrl ? user.profilePhotoUrl : '/pfp.jpg'" 
+  (error)="handleImageError($event)"
+  alt="Profile Photo" 
+  class="profile-photo" />
+  <label for="pfp-upload" class="upload-overlay">
+     </label>
+  <input type="file" id="pfp-upload" (change)="onFileSelected($event)" accept="image/*" style="display: none;" />
+</div>
+   <h4>{{ user.fullName }}</h4>
+          <p>{{ user.jobTitle }}</p>
+          <p><strong>{{ text.dept }}:</strong> {{ user.department }}</p>
+          <p><strong>{{ text.reports }}:</strong> {{ user.reportTo }}</p>
+          <p><strong>{{ text.emailLabel }}:</strong> {{ user.email }}</p>
+          <p><strong>{{ text.phone }}:</strong> {{ user.phoneNumber }}</p>
+          <p><strong>{{ text.org }}:</strong> {{ user.organization }}</p>
+          <p><strong>{{ text.loc }}:</strong> {{ user.location }}</p>
+        </div>
+        <!-- Theme Options -->
+        <div class="theme-options">
+          <p><strong>{{ text.themeLabel }}</strong></p>
+          <div class="theme-buttons">
+            <button [class.active]="!isDark" (click)="setTheme('light')">{{ text.lightMode }}</button>
+            <button [class.active]="isDark" (click)="setTheme('dark')">{{ text.darkMode }}</button>
+          </div>
+        </div>
+        <!-- Logout -->
+        <div class="logout-section">
+          <button class="logout-btn" (click)="logout()">{{ text.logout }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" *ngIf="showHelpPopup" (click)="closeHelpPopup()">
+  <div class="help-article-card" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h2>{{ text.aboutDevoTitle }}</h2>
+      <button class="close-modal-btn" (click)="closeHelpPopup()">&times;</button>
+    </div>
+    
+    <div class="modal-body">
+      <h3 style="color: #7d342c; margin-bottom: 10px;">{{ text.unifiedHub }}</h3>
+      <p style="line-height: 1.6; text-align: justify;">{{ webDescription }}</p>
+      
+      <div class="help-highlights">
+         <p><strong>🚀</strong> {{ text.fastFeat }}</p>
+         <p><strong>🔒</strong> {{ text.secureFeat }}</p>
+         <p><strong>🌍</strong> {{ text.globalFeat }}</p>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="primary-modal-btn" (click)="closeHelpPopup()" style="width: 100%;">
+        {{ text.exploreDevo }}
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="feedback-overlay" *ngIf="showFeedbackModal" (click)="closeFeedbackModal()">
+  <div class="feedback-card" (click)="$event.stopPropagation()">
+    <div class="feedback-header">
+      <h2>{{ text.shareThoughts }}</h2>
+      <button class="close-x" (click)="closeFeedbackModal()">&times;</button>
+    </div>
+    <p class="required-note">{{ text.requiredNote }} <span class="red">*</span></p>
+    <div class="feedback-form">
+      <label>{{ text.feedback }} <span class="red">*</span></label>
+      <textarea [placeholder]="text.feedbackPlaceholder" [(ngModel)]="feedbackText" rows="4"></textarea>
+    </div>
+    <div class="feedback-footer">
+      <button class="cancel-btn" (click)="closeFeedbackModal()">{{ text.cancelBtn }}</button>
+      <button class="send-feedback-btn" [disabled]="!feedbackText" (click)="submitFeedback()">{{ text.sendFeedbackBtn }}</button>
+    </div>
+  </div>
+</div>
+
+<div class="success-toast" *ngIf="showSuccessToast">
+  <div class="toast-content">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+    <span>{{ text.feedbackSuccess }}</span>
+  </div>
+</div>
+
+<div class="modal-overlay" *ngIf="showShortcutsModal" (click)="closeShortcuts()">
+  <div class="shortcut-card" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h2>{{ text.shortcutsTitle }}</h2>
+      <button class="close-x" (click)="closeShortcuts()">&times;</button>
+    </div>
+
+    <div class="modal-body">
+      <div class="shortcut-row">
+        <span>{{ text.shortcutNotify }}</span>
+        <kbd>N</kbd>
+      </div>
+      <div class="shortcut-row">
+        <span>{{ text.shortcutSettings }}</span>
+        <kbd>S</kbd>
+      </div>
+      <div class="shortcut-row">
+        <span>{{ text.shortcutHelp }}</span>
+        <kbd>H</kbd>
+      </div>
+      <div class="shortcut-row">
+        <span>{{ text.shortcutGuide }}</span>
+        <kbd>?</kbd>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="primary-modal-btn" (click)="closeShortcuts()">{{ text.gotIt }}</button>
+    </div>
+  </div>
+</div>
+
+<div class="notification-panel" *ngIf="showNotifications">
+  <div *ngIf="(authService.notifications$ | async) as notis">
+    
+    <div *ngIf="notis.length === 0" class="empty-msg">
+      No notifications yet.
+    </div>
+
+    <div class="noti-item" *ngFor="let n of notis">
+      <span>{{ n.icon }}</span>
+      <div>
+        <p>{{ n.message }}</p>
+        <small>{{ n.time | date:'shortTime' }}</small>
+      </div>
+    </div>
+
+  </div>
+</div>
+</header>

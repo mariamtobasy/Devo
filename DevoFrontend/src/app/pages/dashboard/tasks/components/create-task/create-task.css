@@ -1,0 +1,36 @@
+/* src/app/pages/dashboard/tasks/components/create-task/create-task.css */
+.modal-bg {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:1000;
+}
+
+.modal {
+  background:#fff;
+  padding:22px;
+  border-radius:12px;
+  width:420px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.12);
+}
+
+.modal-title { font-size:20px; margin-bottom:8px; }
+
+
+.form-group { margin-bottom:12px; }
+label { display:block; margin-bottom:6px; font-weight:600; font-size:13px; }
+input, textarea, select {
+  width:100%; padding:9px; border-radius:8px; border:1px solid #d0d0d0; font-size:14px;
+}
+textarea { height:82px; resize:none; }
+.tag-input { display:flex; gap:8px; }
+.small-btn { background:#7d342c; color:white; border:none; padding:8px 12px; border-radius:8px; cursor:pointer; }
+.tags-preview { display:flex; gap:6px; margin-top:8px; flex-wrap:wrap; }
+.tag { background:#eef; color:#5a48e8; padding:4px 8px; border-radius:8px; font-size:12px; }
+
+.modal-actions { display:flex; justify-content:flex-end; gap:10px; margin-top:12px; }
+.cancel-btn { background:#e6e6e6; padding:8px 12px; border-radius:8px; border:none; cursor:pointer; }
+.create-btn { background:#7d342c; color:#fff; padding:8px 12px; border-radius:8px; border:none; cursor:pointer; }
