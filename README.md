@@ -95,6 +95,14 @@ This project was developed as a graduation project and focuses on building a com
 ### Welcome page
 ![Welcome](screenshots/welcome.png)
 
+### LogIn page
+![LogIn](screenshots/DevoLogIn.png)
+
+### Sign Up page
+![Sign Up](screenshots/DevoReg.png)
+
+
+
 ---
 
 ## 🚀 Future Improvements
