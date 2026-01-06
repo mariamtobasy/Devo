@@ -61,7 +61,8 @@ This project was developed as a graduation project and focuses on building a com
 - ASP.NET Core
 - RESTful APIs
 - Entity Framework Core
-
+- JWT-based authentication
+  
 **Database**
 - SQL Server
 
