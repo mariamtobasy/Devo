@@ -83,7 +83,17 @@ This project was developed as a graduation project and focuses on building a com
 
 ## 📸 Screenshots
 
-> *( here)*
+### Task Board
+![Task Board](screenshots/dashtasks.png)
+
+### MyList Board
+![MyList Board](screenshots/dashmylist.png)
+
+### Contact Us
+![Contact Us](screenshots/contact.png)
+
+### Welcome page
+![Welcome](screenshots/welcome.png)
 
 ---
 
