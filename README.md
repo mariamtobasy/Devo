@@ -112,7 +112,7 @@ This project was developed as a graduation project and focuses on building a com
 ![](screenshots/calendar0.png)
 
 ### Dark theme
-![](screenshots/Darktheme.png)
+![](screenshots/Darktheme.JPG)
 
 ### Notes board
 ![](screenshots/notes.png)
