@@ -105,13 +105,17 @@ This project was developed as a graduation project and focuses on building a com
 ![Sign Up](screenshots/DevoReg2.png)
 
 #teams board
-![Teams](screenshots/teams.png)
+![Teams](screenshots/TeamsBoard.png)
 
 #Calendar board
 ![calendar](screenshots/calendar.png)
+![](screenshots/calendar0.png)
 
 #dark theme
-![](screenshots/darktheme.png)
+![](screenshots/Dark Theme.png)
+
+#Notes board
+![](screenshots/notes.png)
 
 ---
 
